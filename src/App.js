@@ -6,10 +6,10 @@ import './App.css';
 function App() {
   const [ListTodo, setListTodo] = useState([]);
 
-  function ajouterTodo(content){
+  function ajouterTodo(contenu){
     const todo = {
       id: crypto.randomUUID(),
-      content,
+      contenu,
       done: false,
       edit: false
     }

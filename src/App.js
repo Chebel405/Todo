@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [ListeTodo, setListeTodo] = useState([]);
+  const [ListTodo, setListTodo] = useState([]);
 
   function ajouterTodo(content){
     const todo = {
@@ -13,14 +13,14 @@ function App() {
       done: false,
       edit: false
     }
-    setListeTodo([...ListeTodo, todo ])
+    setListTodo([...ListTodo, todo])
   }
   return (
     <div className="d-flex flex-row justifi-content-center align-items-center p-20">
       <div className="card container p-20">
         <h1>Todo Liste</h1>
-        <AjouterTodo />
-        <ListeTodo /> 
+        <AjouterTodo ajouterTodo={ajouterTodo} />
+        <ListeTodo />
       </div>
     </div>
   )

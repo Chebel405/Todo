@@ -4,26 +4,33 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [ListTodo, setListTodo] = useState([]);
+  const [listTodo, setListTodo] = useState([]);
 
   function ajouterTodo(contenu){
     const todo = {
       id: crypto.randomUUID(),
-      contenu,
       done: false,
-      edit: false
-    }
-    setListTodo([...ListTodo, todo])
+      edit: false,
+      contenu   
+    };
+
+    setListTodo([...listTodo, todo]);
   }
+
+  function todoDelete(id){
+    setListTodo(listTodo.filter((todo) => todo.id !== id));
+  }
+
   return (
     <div className="d-flex flex-row justifi-content-center align-items-center p-20">
       <div className="card container p-20">
-        <h1>Todo Liste</h1>
+        <h1 className='mb-20'>Todo Liste</h1>
         <AjouterTodo ajouterTodo={ajouterTodo} />
-        <ListeTodo />
+        <ListeTodo listTodo={listTodo} todoDelete={todoDelete} />
+        
       </div>
     </div>
-  )
+  );
 }
 
 export default App;
